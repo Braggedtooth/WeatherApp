@@ -1,10 +1,10 @@
 # Som användare ska man kunna göra följande
 
 - Kunna se följande väderförhållanden för sin nuvarande position:
-- Temperatur
-- Vindstyrka
-- Luftfuktighet
-- Soluppgång och nedgång (klockslag)
+  - Temperatur
+  - Vindstyrka
+  - Luftfuktighet
+  - Soluppgång och nedgång (klockslag)
 - Välja mellan Farenheit och Celsius
 - Kunna få en väderleksprognos för väderförhållanden (enligt ovan) 5 dagar framåt
 - Kort översikt för veckan
