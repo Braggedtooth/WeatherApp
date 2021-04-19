@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Content from './Content'
 import Searchform from './Searchform'
 import Weatherinfo from './WeatherInfo'
+import Themalscale from './ThermalScale'
 
 
 
@@ -28,6 +29,7 @@ const Main = () => {
             <Content bg="dark" className="card-body">
                 <Searchform api_call={api_call} />
                 {weather && <Weatherinfo weather={weather} />}
+                <Themalscale />
             </Content>
         </Row>
     )
