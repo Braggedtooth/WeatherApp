@@ -6,6 +6,7 @@ import Content from './Content'
 import Searchform from './Searchform'
 import Weatherinfo from './WeatherInfo'
 import Context from '../Context'
+import Err from './Err'
 
 
 
@@ -18,7 +19,7 @@ const Main = () => {
     const [weatherTemp, setWeatherTemp] = useState();
     const [measurement, setmeasurement] = useState('°C')
     const [tempscale, setTempscale] = useState(weatherTemp)
-
+    const [err, setErr] = useState()
 
 
     const api_call = async e => {
@@ -26,6 +27,7 @@ const Main = () => {
         const location = e.target.elements.location.value
         const API_KEY = '80888145820e593332edff81250e159a'
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`
+        if (!location) { return setErr('Please Enter A Valid City.'), setWeather(null) };
         const req = axios.get(url)
         const resp = await req
         setWeather(resp.data.main)
@@ -34,7 +36,7 @@ const Main = () => {
         setWeatherTemp(vTemp)
         setTempscale(undefined)
         setmeasurement('°C') /* WACKY SOLUTION TO A WACKY PROBLEM INVESTIGATE FURTHER */
-        console.log(vTemp)
+        setErr(null)
 
     }
 
@@ -68,8 +70,10 @@ const Main = () => {
                 <Context.Provider value={{ api_call, weather, city, weatherTemp, switchMeasurements, measurement, tempscale }}>
                     <Searchform />
                     {weather && <Weatherinfo />}
+
                 </Context.Provider>
             </Content>
+            {err && <Err error={err} />}
         </Row>
     )
 
