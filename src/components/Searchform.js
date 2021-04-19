@@ -5,7 +5,7 @@ import Context from '../Context'
 const Searchform = () => {
     const { api_call } = useContext(Context)
     return (
-        <Form onSubmit={api_call} className="row">
+        <Form onSubmit={api_call} className="row mb-3">
             <Form.Control name="location" type="text" placeholder="Enter City Name" className="col" />
             <Button type=" submit" className="col-md-2 col-sm">Get Weather</Button>
 

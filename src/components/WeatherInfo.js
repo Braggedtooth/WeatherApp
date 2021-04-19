@@ -14,7 +14,7 @@ const Weatherinfo = () => {
 
 
     return (
-        <Card className="p-5 mt-lg-2">
+        <Card className="p-5 mt-sm-3 mt-md-3 ">
             <div className=" d-flex justify-content-between"> <p>Weather Today in</p> <span>{city}</span></div>
             <div className=" d-flex justify-content-between"> <p>Temperature</p> <span >{tempscale ?? weatherTemp}{measurement}</span></div>
             <div className=" d-flex justify-content-between"> <p>Wind Pressure</p> <span>{pressure}</span></div>

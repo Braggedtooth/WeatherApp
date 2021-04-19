@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const Navigationbar = () => (
     <>
-        <Navbar bg="light">
+        <Navbar bg="light" className=" mb-md-5">
             <Navbar.Brand href="/">Weather App</Navbar.Brand>
         </Navbar>
 
