@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Content from './Content'
 import Searchform from './Searchform'
 import Weatherinfo from './WeatherInfo'
-import Themalscale from './ThermalScale'
+
 
 
 
@@ -15,7 +15,7 @@ const Main = () => {
     const api_call = async e => {
         e.preventDefault()
         const API_KEY = '80888145820e593332edff81250e159a'
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${API_KEY}&units=metric`
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=Bali&appid=${API_KEY}&units=metric`
         const req = axios.get(url)
         const resp = await req
         setWeather(resp.data.main)
@@ -29,7 +29,7 @@ const Main = () => {
             <Content bg="dark" className="card-body">
                 <Searchform api_call={api_call} />
                 {weather && <Weatherinfo weather={weather} />}
-                <Themalscale />
+
             </Content>
         </Row>
     )
