@@ -56,8 +56,8 @@ const Main = () => {
             <Content bg="dark" className="card-body">
                 <Context.Provider value={{ api_call, weather, city, weatherTemp, measurement, setmeasurement }}>
                     <Searchform />
-                    <div className=" d-flex justify-content-between"> <p>Temperature</p> <span >{measurement}</span></div>
-                    {/* {weather && <Weatherinfo />} */}
+
+                    {weather && <Weatherinfo />}
 
                 </Context.Provider>
             </Content>

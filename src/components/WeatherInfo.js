@@ -14,14 +14,14 @@ const Weatherinfo = () => {
 
 
     return (
-        <Card className="p-5 mt-sm-3 mt-md-3 ">
+        <Card className="p-2 mt-sm-3 mt-md-3 ">
             <div className=" d-flex justify-content-between"> <p>Weather Today in</p> <span>{city}</span></div>
             <div className=" d-flex justify-content-between"> <p>Temperature</p> <span >{tempscale ?? weatherTemp}{measurement}</span></div>
             <div className=" d-flex justify-content-between"> <p>Wind Pressure</p> <span>{pressure}</span></div>
-            <div className=" d-flex justify-content-between"> <p>humidity</p> <span>{humidity}</span></div>
+            <div className=" d-flex justify-content-between"> <p>Humidity</p> <span>{humidity}</span></div>
             <div className=" d-flex justify-content-between"> <p>Sunrise and sunset</p> <span>Sunrise</span></div>
-            <div>
-                <Button className=" col-6" variant="success">Get weather from your location</Button>
+            <div className=" d-flex align-content-center justify-content-center">
+                <Button variant="success">Get weather from your location</Button>
 
             </div>
 

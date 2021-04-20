@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import styles from '../style/Toggle.module.css'
-import Context from '../Context'
+
 
 const ToggleBtn = () => {
 
