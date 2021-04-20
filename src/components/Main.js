@@ -25,18 +25,20 @@ const Main = () => {
     const api_call = async e => {
         e.preventDefault()
         const location = e.target.elements.location.value
-        const API_KEY = '80888145820e593332edff81250e159a'
+        const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`
-        if (!location) { return setErr('Please Enter A Valid City.'), setWeather(null) };
+        if (!location) { setErr('Please Enter A Valid City.'); return setWeather(null) };
         const req = axios.get(url)
         const resp = await req
         setWeather(resp.data.main)
         setCity(resp.data.name);
         const vTemp = (Math.round(resp.data.main.temp))
         setWeatherTemp(vTemp)
-        setTempscale(undefined)
+        setTempscale(null)
         setmeasurement('°C') /* WACKY SOLUTION TO A WACKY PROBLEM INVESTIGATE FURTHER */
         setErr(null)
+        const weatherInfo = resp.data.weather
+        console.log(weatherInfo)
 
     }
 
