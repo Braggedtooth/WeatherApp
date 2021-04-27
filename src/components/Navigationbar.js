@@ -7,7 +7,8 @@ const Navigationbar = () => (
     <>
         <Navbar bg="dark" className=" mb-md-5 justify-content-between">
             <Navbar.Brand href="/">Weather App</Navbar.Brand>
-            <Togglebtn />
+            <Togglebtn selected={true} toggleSelected={!selected} />
+
         </Navbar>
 
     </>

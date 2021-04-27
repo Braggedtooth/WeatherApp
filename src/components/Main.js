@@ -5,8 +5,10 @@ import Row from 'react-bootstrap/Row'
 import Content from './Content'
 import Searchform from './Searchform'
 import Weatherinfo from './WeatherInfo'
-import Context from '../Context'
+import Context from '../context/Context'
 import Err from './Err'
+
+
 
 
 
@@ -19,9 +21,10 @@ const Main = () => {
     const [city, setCity] = useState()
     const [weatherTemp, setWeatherTemp] = useState();
     const [measurement, setmeasurement] = useState('°C')
-
+    const [unit, setUnit] = useState(weatherTemp)
     const [err, setErr] = useState()
-
+    const [toggle, setToggle] = useState(true)
+    const trigger = () => { setToggle(!toggle) }
 
     const api_call = async e => {
         e.preventDefault()
@@ -33,9 +36,9 @@ const Main = () => {
         const resp = await req
         setWeather(resp.data.main)
         setCity(resp.data.name);
-        const vTemp = (Math.round(resp.data.main.temp))
-        setWeatherTemp(vTemp)
-        setmeasurement('°C') /* WACKY SOLUTION TO A WACKY PROBLEM INVESTIGATE FURTHER */
+        setWeatherTemp(Math.round(resp.data.main.temp))
+        setmeasurement('°C')
+        setUnit(weatherTemp) /* WACKY SOLUTION TO A WACKY PROBLEM INVESTIGATE FURTHER */
         setErr(null)
         const weatherInfo = resp.data.weather
         console.log(weatherInfo)
@@ -50,17 +53,25 @@ const Main = () => {
 
 
 
+
+
     return (
         <Row className="card">
-            <Title className="card-header" />
-            <Content bg="dark" className="card-body">
-                <Context.Provider value={{ api_call, weather, city, weatherTemp, measurement, setmeasurement }}>
+
+            <Context.Provider value={{ api_call, weather, city, weatherTemp, measurement, setmeasurement, setUnit, unit, trigger, toggle }}>
+                <Title className="card-header" />
+                <Content bg="dark" className="card-body">
+
                     <Searchform />
 
                     {weather && <Weatherinfo />}
 
-                </Context.Provider>
-            </Content>
+
+                </Content>
+
+            </Context.Provider>
+
+
             {err && <Err error={err} />}
         </Row>
     )

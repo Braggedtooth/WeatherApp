@@ -1,20 +1,26 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import Togglebtn from './Togglebtn'
+import Unitbtn from './Unitbtn'
+
+
+
 
 
 
 
 const Title = () => {
+    return (
+        <>
 
-    return (<>
+            <Card.Header className="card-title text-center justify-content-between d-flex">
+                <p>Enter a city name to get weather information </p>
+                <Unitbtn />
+            </Card.Header>
 
-        <Card.Header className="card-title text-center justify-content-between d-flex"> Enter a city name to get weather information {<Togglebtn />} </Card.Header>
-
-
-    </>
+        </>
     )
 }
+
 
 
 
