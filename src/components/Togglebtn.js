@@ -1,27 +1,35 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-
+import React, { useState } from 'react'
 import "../style/toggle.css";
 
 
-const ToggleBtn = (props) => {
-    const { selected, toggleSelected } = useState(true);
 
 
+
+
+const Togglebtn = () => {
+
+    const [toggle, setToggle] = useState(false)
+    const Stgl = e => {
+
+        setToggle(!toggle)
+    }
 
     return (
-        <div className="toggle-container" onClick={toggleSelected}>
-            <div className={`dialog-button ${selected ? "" : "disabled"}`}>
-                {selected ? "YES" : "NO"}
+
+
+
+        <div className="toggle-container" onClick={Stgl}>
+            <div className={`dialog-button ${toggle ? "" : "disabled"}`}>
+                {toggle ? "°F" : "°C"}
             </div>
         </div>
-    );
 
+
+
+    )
 }
-ToggleBtn.propTypes = {
-    selected: PropTypes.bool.isRequired,
-    toggleSelected: PropTypes.func.isRequired
-};
 
-export default ToggleBtn
 
+
+
+export default Togglebtn

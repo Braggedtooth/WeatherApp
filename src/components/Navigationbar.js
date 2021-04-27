@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
-import Togglebtn from './Togglebtn'
 
 
-const Navigationbar = () => (
+
+const Navigationbar = (props) => (
     <>
         <Navbar bg="dark" className=" mb-md-5 justify-content-between">
             <Navbar.Brand href="/">Weather App</Navbar.Brand>
-            <Togglebtn selected={true} toggleSelected={!selected} />
+
 
         </Navbar>
 
