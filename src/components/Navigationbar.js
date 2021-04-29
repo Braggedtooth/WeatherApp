@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 
 
-const Navigationbar = (props) => (
+const Navigationbar = () => (
     <>
         <Navbar bg="dark" className=" mb-md-5 justify-content-between">
             <Navbar.Brand href="/">Weather App</Navbar.Brand>

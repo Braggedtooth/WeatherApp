@@ -1,15 +1,15 @@
 # Running This Application
+
 - To run this application clone it to a local repositiory.
-- Open the root directory of the app in your terminal 
+- Open the root directory of the app in your terminal
 - Type in the following script
+
 ```script
 npm i && npm run start
 
 ```
 
-
-
-### Som användare ska man kunna göra följande
+## Som användare ska man kunna göra följande
 
 - Kunna se följande väderförhållanden för sin nuvarande position:
   - [x] Temperatur
@@ -23,4 +23,4 @@ npm i && npm run start
 - [ ] 5- dagarsprognos
 - [x] Nyttja ett väder-API, t.ex. SMHI, YR.NO, OpenWeatherMaps
 - [ ] Nyttja positionering via geolocation i webbläsaren
-- [ ]  Design/färg & form baserad på weather.com (Länkar till en externa sida.)Länkar till en externa sida. eller liknande applikationer/appar
+- [ ] Design/färg & form baserad på weather.com (Länkar till en externa sida.)Länkar till en externa sida. eller liknande applikationer/appar

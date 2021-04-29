@@ -8,7 +8,9 @@ import Togglebtn from './Togglebtn'
 
 
 
+
 const Title = () => {
+
 
     return (
         <>
@@ -16,7 +18,7 @@ const Title = () => {
             <Card.Header className="card-title text-center justify-content-between d-flex">
                 <p>Enter a city name to get weather information </p>
 
-                <Togglebtn />
+                {<Togglebtn />}
 
             </Card.Header>
         </>
