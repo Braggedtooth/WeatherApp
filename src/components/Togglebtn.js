@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import Context from '../context/Context';
 import "../style/toggle.css";
 
 
@@ -7,11 +8,13 @@ import "../style/toggle.css";
 
 
 const Togglebtn = () => {
-
+    const { setUnit } = useContext(Context)
     const [toggle, setToggle] = useState(false)
-    const Stgl = e => {
-
+    const Stgl = () => {
         setToggle(!toggle)
+        if (!toggle) {
+            setUnit({ id: 'imperial', value: '°F' })
+        } else setUnit({ id: 'metric', value: '°C' })
     }
 
     return (
