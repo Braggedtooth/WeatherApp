@@ -1,11 +1,13 @@
+import Box from '@material-ui/core/Box'
 import React from 'react'
-import Container from 'react-bootstrap/Container'
+
 
 const Wrapper = (props) => {
     return (
-        <Container>
+        <Box>
             {props.children}
-        </Container>
+        </Box>
+
     )
 
 }
