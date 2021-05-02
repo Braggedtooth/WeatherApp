@@ -29,19 +29,18 @@ const Main = () => {
 
     }
 
+
     return (
-        <Container p={3}>
+
+        <Container className="mw-100 p-0">
             <Context.Provider value={{ api_call, weather, city, weatherTemp, setUnit, unit, setQuerry, querry, value, }}>
                 <Navigationbar />
 
-
-
                 <Tabs />
-
-
             </Context.Provider>
             {err && <Err error={err} />}
         </Container>
+
     )
 
 }
