@@ -2,13 +2,6 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import Togglebtn from './Togglebtn'
 
-
-
-
-
-
-
-
 const Title = () => {
 
 

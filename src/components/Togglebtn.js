@@ -2,11 +2,6 @@ import React, { useContext, useState } from 'react'
 import Context from '../context/Context';
 import "../style/toggle.css";
 
-
-
-
-
-
 const Togglebtn = () => {
     const { setUnit } = useContext(Context)
     const [toggle, setToggle] = useState(false)

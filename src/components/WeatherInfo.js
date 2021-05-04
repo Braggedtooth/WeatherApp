@@ -8,13 +8,6 @@ const Weatherinfo = () => {
     const { weather, city, weatherTemp, value } = useContext(Context)
     const { humidity, pressure } = weather
 
-
-
-
-
-
-
-
     return (
         <Card className="p-2 mt-sm-3 mt-md-3 ">
             <div className=" d-flex justify-content-between"> <p>Weather Today in</p> <span>{city}</span></div>

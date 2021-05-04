@@ -10,6 +10,8 @@ import Box from '@material-ui/core/Box';
 import Weatherinfo from './WeatherInfo'
 import Context from '../context/Context';
 import Title from './Title';
+import GetLocData from './GetLocData';
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -91,8 +93,9 @@ export default function FullWidthTabs() {
                     {err && <Err error={err} />}
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
-        </TabPanel>
+                    <GetLocData />
+
+                </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     Item Three
         </TabPanel>
