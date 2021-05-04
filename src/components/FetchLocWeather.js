@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import HourData from './Hourdata'
+
 
 
 const FetchLocWeather = (props) => {
@@ -25,6 +25,7 @@ const FetchLocWeather = (props) => {
     )
 
 }
+
 /* <HourData data={response} /> */
 
 /*  locationdata (hämtar location, skickat lat lon som props) (CR) ->

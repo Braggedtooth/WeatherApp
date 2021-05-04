@@ -1,4 +1,4 @@
-
+/*
 import React, { useEffect, useState, } from 'react';
 
 import axios from 'axios'
@@ -36,7 +36,7 @@ const LocationData = () => {
         const hourlyReport = hourly.slice(0, 6).map((data) => {
             const { temp, pressure, humidity, weather, } = data
 
-            const { icon, main, description, } = weather[0]                      /*  hourly.map((hourly, data) =><li key={data} > day {data} {hourly.temp}</li> */
+            const { icon, main, description, } = weather[0]                      /*  hourly.map((hourly, data) =><li key={data} > day {data} {hourly.temp}</li>
 
 
             const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`
@@ -50,9 +50,10 @@ const LocationData = () => {
 
     return (response ? <HourData {...response} /> : null)
     // locationdata (hämtar location, skickat lat lon som props) (CR) -> FetchLocWeather (hämtar väder skickar data som props) (CR)-> HourDAta (renderar väderinfon) + weekdata osv
-    // obs conditional rendering efter varje steg utom sista    
+    // obs conditional rendering efter varje steg utom sista
     //}
 }
 export default LocationData
 
 
+ */
