@@ -18,7 +18,7 @@ const LocationDatata = () => {
 
     return (
         <div >
-            {  position && position.lng}
+
             <button onClick={() => { console.log(position) }}> Press</button>
 
             { position ? <FetchLocWeather location={position} /> : null}

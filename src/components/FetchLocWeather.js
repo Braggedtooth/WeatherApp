@@ -11,16 +11,31 @@ const FetchLocWeather = (props) => {
 
 
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${API_KEY}`
-    useEffect(() => { })
-    axios.get(url).then(response => {
-        setResponse(response.data.hourly)
 
 
-    })
+    useEffect(() => {
+        axios.get(url).then(response => {
+            setResponse(response.data)
+
+        })
+        return () => {
+            if (!response) return
+
+            sessionStorage.setItem('Data', JSON.stringify(response))
+
+
+        }
+    }, [url, response])
+
+    var Weather = JSON.parse(sessionStorage.Data);
 
     return (
         <>
-            {response.temp}
+            <div>
+                <button onClick={() => { console.log(Weather.current) }}>
+                    CLICK
+                </button>
+            </div>
         </>
     )
 
