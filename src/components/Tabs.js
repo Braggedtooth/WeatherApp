@@ -10,7 +10,10 @@ import Box from '@material-ui/core/Box';
 import Weatherinfo from './WeatherInfo'
 import Context from '../context/Context';
 import Title from './Title';
-import GetLocData from './GetLocData';
+import HourData from './Hourdata';
+import Weather1call from './Weather1call';
+import Coordinates from './Coordinates'
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -65,6 +68,10 @@ export default function FullWidthTabs() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
+    Coordinates()  //get current coordinates
+    if (localStorage.getItem('location')) {
+        Weather1call()
+    } else console.log('Location Not accessed') // checks if coordinate exists in localstorage and make a call to api
 
     return (
         <div className={classes.root}>
@@ -93,15 +100,15 @@ export default function FullWidthTabs() {
                     {err && <Err error={err} />}
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    <GetLocData />
-
+                    <h3> Current Weather</h3>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
-        </TabPanel>
+                    <h3>6 Hour prognos</h3>
+                    <HourData />
+                </TabPanel>
                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    Item Three
-        </TabPanel>
+                    <h3>5-day Prognos</h3>
+                </TabPanel>
             </SwipeableViews>
         </div>
     );

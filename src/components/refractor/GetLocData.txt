@@ -1,0 +1,19 @@
+import { useState } from "react";
+
+
+
+export default function LocationData() {
+
+    const [position, setPosition] = useState()
+    if (!navigator.geolocation) return alert('Pls Give access to geolocation')
+    navigator.geolocation.getCurrentPosition((position) => {
+        setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
+    }, () => { })
+
+    const save = () => {
+        localStorage.setItem('location', JSON.stringify(position))
+    }
+
+    return save()
+}
+

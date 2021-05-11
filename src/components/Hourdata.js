@@ -1,9 +1,10 @@
 import React from 'react'
 
+const HourData = () => {
 
-const HourData = (props) => {
+    const weatherData = JSON.parse(sessionStorage.data)
 
-    const { hourly } = props.data
+    const { hourly } = weatherData.data
 
     const RenderHrdata = () => {
         const hrData = hourly.slice(0, 6).map((hourly) => {

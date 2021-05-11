@@ -5,6 +5,7 @@ import Err from './Err'
 import Navigationbar from './Navigationbar'
 import Tabs from './Tabs'
 import { Container } from 'react-bootstrap'
+
 const Main = () => {
     const [weather, setWeather] = useState();
     const [city, setCity] = useState()
@@ -27,15 +28,14 @@ const Main = () => {
         setWeatherTemp(Math.round(resp.data.main.temp))
         setErr(null)
 
-    }
 
+    }
 
     return (
 
         <Container className="mw-100 p-0">
             <Context.Provider value={{ api_call, weather, city, weatherTemp, setUnit, unit, setQuerry, querry, value, }}>
                 <Navigationbar />
-
                 <Tabs />
             </Context.Provider>
             {err && <Err error={err} />}
