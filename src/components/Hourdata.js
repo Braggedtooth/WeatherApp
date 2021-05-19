@@ -3,7 +3,7 @@ import React from 'react'
 import { Row } from 'react-bootstrap'
 
 const HourData = () => {
-
+    if (!sessionStorage.getItem('data')) return
     const weatherData = JSON.parse(sessionStorage.data)
     const { hourly } = weatherData.data
 

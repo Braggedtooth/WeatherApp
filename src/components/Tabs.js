@@ -12,17 +12,17 @@ import Context from '../context/Context';
 import Title from './Title';
 import HourData from './Hourdata';
 import Weather1call from './Weather1call';
-import Coordinates from './Coordinates'
 import { Row } from 'react-bootstrap';
 import Fivedaydata from './Fivedaydata'
+import Searchform from './Searchform'
 
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
-    Coordinates()  //get current coordinates
-    if (localStorage.getItem('location')) {
-        Weather1call()
-    } else console.log('Location Not accessed') // checks if coordinate exists in localstorage and make a call to api
+
+    if (!localStorage.getItem('location')) {
+        console.log('Location Not accessed')
+    } else Weather1call() // checks if coordinate exists in localstorage and make a call to api
 
 
     return (
@@ -93,9 +93,9 @@ export default function FullWidthTabs() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="City" {...a11yProps(0)} />
-                    <Tab label="Current" {...a11yProps(1)} />
-                    <Tab label="Hourly" {...a11yProps(2)} />
+                    <Tab label="Search" {...a11yProps(0)} />
+                    <Tab label="Current Weather" {...a11yProps(1)} />
+                    <Tab label="Hourly Prognos" {...a11yProps(2)} />
                     <Tab label="5-Day Prognos" {...a11yProps(3)} />
                 </Tabs>
             </AppBar>
@@ -106,22 +106,26 @@ export default function FullWidthTabs() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    {weather ? <Weatherinfo /> : <Title />}
-                    {err && <Err error={err} />}
+                    <div className="justify-content-between">
+                        <Searchform />
+                        {weather ? <Weatherinfo /> : <Title />}
+                        {err && <Err error={err} />}
+                    </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     <h3> Current Weather</h3>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    <h3>6 Hour prognos From :</h3>
+                    <h3 className="justify-content-center">6 Hour prognos</h3>
                     <Row className="justify-content-center">
                         {HourData()}
                     </Row>
                 </TabPanel>
                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    <h3>5-day Prognos:</h3>
-                    {Fivedaydata()}
-
+                    <h3 className="justify-content-center" >5-day Prognos</h3>
+                    <Row className="justify-content-center">
+                        {Fivedaydata()}
+                    </Row>
                 </TabPanel>
             </SwipeableViews>
         </div>

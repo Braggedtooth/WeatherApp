@@ -4,9 +4,12 @@ import Context from '../context/Context'
 import Err from './Err'
 import Navigationbar from './Navigationbar'
 import Tabs from './Tabs'
+import Coordinates from './Coordinates'
 import { Container } from 'react-bootstrap'
 
 const Main = () => {
+    Coordinates()
+
     const [weather, setWeather] = useState();
     const [city, setCity] = useState()
     const [weatherTemp, setWeatherTemp] = useState();

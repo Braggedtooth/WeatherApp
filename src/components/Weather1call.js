@@ -1,6 +1,8 @@
 import axios from 'axios'
+import Coordinates from './Coordinates'
 
 export default async function Weather1call() {
+    Coordinates()
     const coords = await JSON.parse(localStorage.location)
     const { lat, long } = coords
 
