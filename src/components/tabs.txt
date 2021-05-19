@@ -67,12 +67,12 @@ export default function FullWidthTabs() {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
     const { weather, Err, err } = useContext(Context)
-    /*   const weatherData = JSON.parse(sessionStorage.data)
- 
-     if (!weatherData) return
-     const { daily, hourly, current } = weatherData.data
- 
-       console.log(weatherData); */
+    const weatherData = JSON.parse(sessionStorage.data)
+
+    if (!weatherData) return
+    const { daily, hourly, current } = weatherData.data
+
+    /*    console.log(weatherData); */
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -114,7 +114,7 @@ export default function FullWidthTabs() {
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     <h3>6 Hour prognos From :</h3>
                     <Row className="justify-content-center">
-
+                        {HourData(hourly)}
                     </Row>
                 </TabPanel>
                 <TabPanel value={value} index={3} dir={theme.direction}>

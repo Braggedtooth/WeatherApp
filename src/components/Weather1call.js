@@ -5,7 +5,7 @@ export default async function Weather1call() {
     const { lat, long } = coords
 
     const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${API_KEY}`
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`
 
     if (!sessionStorage.getItem('data')) {
         axios.get(url).then(response => {
