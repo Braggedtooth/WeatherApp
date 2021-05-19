@@ -5,14 +5,14 @@ import { Row } from 'react-bootstrap'
 const HourData = () => {
 
     const weatherData = JSON.parse(sessionStorage.data)
-    const { hourly } = weatherData.data
+    const { daily } = weatherData.data
 
 
 
     return (
 
         <Row className="justify-content-center">
-            {Renderdata(hourly)}
+            {Renderdata(daily)}
         </Row>
 
     )

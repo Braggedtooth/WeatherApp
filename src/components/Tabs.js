@@ -14,6 +14,7 @@ import HourData from './Hourdata';
 import Weather1call from './Weather1call';
 import Coordinates from './Coordinates'
 import { Row } from 'react-bootstrap';
+import Fivedaydata from './Fivedaydata'
 
 
 function TabPanel(props) {
@@ -114,11 +115,13 @@ export default function FullWidthTabs() {
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     <h3>6 Hour prognos From :</h3>
                     <Row className="justify-content-center">
-
+                        {HourData()}
                     </Row>
                 </TabPanel>
                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    <h3>5-day Prognos</h3>
+                    <h3>5-day Prognos:</h3>
+                    {Fivedaydata()}
+
                 </TabPanel>
             </SwipeableViews>
         </div>
