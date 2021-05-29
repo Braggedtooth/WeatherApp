@@ -1,19 +1,16 @@
-import Renderdata from '../controllers/Renderdata.js'
+import RenderData from '../controllers/RenderCurrent'
 import React from 'react'
 import { Row } from 'react-bootstrap'
 
-const HourData = () => {
+const CurrentData = () => {
     if (!sessionStorage.getItem('data')) return
     const weatherData = JSON.parse(sessionStorage.data)
-    const { hourly, current } = weatherData.data
-    console.log(current);
-
-
+    const { current } = weatherData.data
 
     return (
 
         <Row className="justify-content-center">
-            {Renderdata(hourly)}
+            {RenderData(current)}
         </Row>
 
     )
@@ -25,4 +22,4 @@ const HourData = () => {
 }
 
 
-export default HourData
+export default CurrentData

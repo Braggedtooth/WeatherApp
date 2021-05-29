@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Coordinates from './Coordinates'
+import Coordinates from '../controllers/Coordinates'
 
 export default async function Weather1call() {
     Coordinates()

@@ -4,8 +4,9 @@ import { Card, Col, ListGroup, ListGroupItem } from 'react-bootstrap'
 
 export default function RenderData(array) {
     const data = array.slice(0, 5).map((param) => {
-        const { dt, temp, pressure, humidity, weather, dew_point, visibility } = param
+        const { dt, temp, pressure, humidity, weather, dew_point, sunrise, sunset } = param
         const { icon, main, description, } = weather[0]
+        const { max } = temp
         const formattedTime = Calculatedate(dt)
         const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`
         const cStyle = {
@@ -25,12 +26,14 @@ export default function RenderData(array) {
 
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                        <ListGroupItem>Temperature: {Math.round(temp)}°C</ListGroupItem>
+                        <ListGroupItem>Temperature: {Math.round(max)}°C</ListGroupItem>
                         <ListGroupItem>Wind pressure: {pressure}hPa</ListGroupItem>
                         <ListGroupItem>Humidity: {humidity}%</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                        <ListGroupItem>Dewpoint: {Math.round(dew_point)}°C Visibility:{Math.round(visibility / 1000)}km</ListGroupItem>
+                        <ListGroupItem>Dewpoint: {Math.round(dew_point)}°C</ListGroupItem>
+                        <ListGroupItem>Sunrise : {Calculatedate(sunrise)} </ListGroupItem>
+                        <ListGroupItem>Sunset : {Calculatedate(sunset)} </ListGroupItem>
                     </Card.Body>
                 </Card>
             </Col>

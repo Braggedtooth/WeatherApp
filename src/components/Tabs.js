@@ -11,10 +11,11 @@ import Weatherinfo from './WeatherInfo'
 import Context from '../context/Context';
 import Title from './Title';
 import HourData from './Hourdata';
-import Weather1call from './Weather1call';
+import Weather1call from '../controllers/Weather1call';
 import { Row } from 'react-bootstrap';
 import Fivedaydata from './Fivedaydata'
 import Searchform from './Searchform'
+import CurrentData from './CurrentWeather';
 
 
 function TabPanel(props) {
@@ -93,7 +94,7 @@ export default function FullWidthTabs() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Search" {...a11yProps(0)} />
+                    <Tab label="Home" {...a11yProps(0)} />
                     <Tab label="Current Weather" {...a11yProps(1)} />
                     <Tab label="Hourly Prognos" {...a11yProps(2)} />
                     <Tab label="5-Day Prognos" {...a11yProps(3)} />
@@ -107,6 +108,11 @@ export default function FullWidthTabs() {
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
                     <div className="justify-content-between">
+                        <div>
+                            <h1> This app display weather information using your current location</h1>
+                            <p> You can also search weather information of other places using the search bar below </p>
+                            <p> You change from celsius to fahrenheit using the button below before your search.</p>
+                        </div>
                         <Searchform />
                         {weather ? <Weatherinfo /> : <Title />}
                         {err && <Err error={err} />}
@@ -114,9 +120,10 @@ export default function FullWidthTabs() {
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     <h3> Current Weather</h3>
+                    {CurrentData()}
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    <h3 className="justify-content-center">6 Hour prognos</h3>
+                    <h3 className="justify-content-center">5 Hour prognos</h3>
                     <Row className="justify-content-center">
                         {HourData()}
                     </Row>
